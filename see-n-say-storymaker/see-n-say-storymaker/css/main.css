@@ -1,0 +1,126 @@
+@charset "utf-8";
+/* Assignment 1 | COMP1073 Client-Side JavaScript */
+
+/* Base Styles
+-------------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #f4f4f4;
+    overflow: hidden; /* Prevents scrolling during animation */
+}
+
+header, footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* App Container Styles
+-------------------------------------------------- */
+#app {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-out, slideUp 1s ease-out;
+}
+
+/* Animations
+-------------------------------------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(100px); }
+    to { transform: translateY(0); }
+}
+
+/* Input Styles
+-------------------------------------------------- */
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Button Styles
+-------------------------------------------------- */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#speak-button {
+    background-color: darkblue;
+}
+
+#story-button{
+    background-color: darkblue;
+}
+
+#reset-button{
+    background-color: darkblue;
+}
+/* Status and Output Styles
+-------------------------------------------------- */
+#status {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+#story-output {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Settings Styles
+-------------------------------------------------- */
+#settings {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#settings select, #settings input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
