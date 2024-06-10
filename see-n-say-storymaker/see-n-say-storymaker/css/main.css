@@ -26,6 +26,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 /* App Container Styles
@@ -37,6 +38,8 @@ main {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     animation: fadeIn 1s ease-out, slideUp 1s ease-out;
+    max-width: 600px;
+    width: 100%;
 }
 
 /* Animations
@@ -54,12 +57,13 @@ main {
 /* Input Styles
 -------------------------------------------------- */
 input[type="text"] {
-    width: 80%;
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 /* Button Styles
@@ -74,6 +78,7 @@ button {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.1s;
+    display: inline-block;
 }
 
 button:hover {
@@ -89,13 +94,38 @@ button:active {
     background-color: darkblue;
 }
 
-#story-button{
+#story-button {
     background-color: darkblue;
 }
 
-#reset-button{
+#reset-button {
     background-color: darkblue;
 }
+
+.preset-button {
+    background-color: #28a745;
+}
+
+.preset-button:hover {
+    background-color: #218838;
+}
+
+.preset-button:active {
+    background-color: #1e7e34;
+}
+
+.random-button {
+    background-color: #17a2b8;
+}
+
+.random-button:hover {
+    background-color: #138496;
+}
+
+.random-button:active {
+    background-color: #117a8b;
+}
+
 /* Status and Output Styles
 -------------------------------------------------- */
 #status {
