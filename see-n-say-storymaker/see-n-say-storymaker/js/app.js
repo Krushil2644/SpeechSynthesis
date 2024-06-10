@@ -1,3 +1,5 @@
+// Assignment 1 | COMP1073 Client-Side JavaScript
+
 /* Variables
 -------------------------------------------------- */
 var synth = window.speechSynthesis;
@@ -5,13 +7,18 @@ var speakButton = document.getElementById('speak-button');
 var storyButton = document.getElementById('story-button');
 var resetButton = document.getElementById('reset-button');
 var textInput = document.getElementById('text-input');
-var presetButtons = document.querySelectorAll('.preset-button');
+var presetButtons = document.querySelectorAll('.preset-button, .random-button');
 var status = document.getElementById('status');
 var voiceSelect = document.getElementById('voice-select');
 var rateInput = document.getElementById('rate-input');
 var storyOutput = document.getElementById('story-output');
 
 var voices = [];
+var nouns = ["The cat", "A dog", "My friend", "The teacher", "An artist"];
+var verbs = ["jumps", "runs", "paints", "writes", "sings"];
+var adjectives = ["happy", "quick", "colorful", "thoughtful", "melodious"];
+var objects = ["a ball", "a picture", "a song", "a letter", "a story"];
+var places = ["in the park", "at home", "in the museum", "at school", "in the garden"];
 
 /* Functions
 -------------------------------------------------- */
@@ -77,6 +84,18 @@ function resetContent() {
     status.textContent = '';
 }
 
+/**
+ * Generate a random phrase from the predefined arrays
+ */
+function getRandomPhrase() {
+    var noun = nouns[Math.floor(Math.random() * nouns.length)];
+    var verb = verbs[Math.floor(Math.random() * verbs.length)];
+    var adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+    var object = objects[Math.floor(Math.random() * objects.length)];
+    var place = places[Math.floor(Math.random() * places.length)];
+    return `${noun} ${verb} ${adjective} ${object} ${place}.`;
+}
+
 /* Event Listeners
 -------------------------------------------------- */
 /**
@@ -106,7 +125,9 @@ resetButton.addEventListener('click', resetContent);
  */
 presetButtons.forEach(function(button) {
     button.addEventListener('click', function() {
-        speakNow(button.textContent);
+        var text = button.classList.contains('random-button') ? getRandomPhrase() : button.textContent;
+        textInput.value = text;
+        speakNow(text);
     });
 });
 
